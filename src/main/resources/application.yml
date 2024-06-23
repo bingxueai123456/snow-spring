@@ -1,0 +1,20 @@
+server:
+  port: 8111
+
+spring:
+  datasource:
+    dynamic:
+      primary: master
+      strict: true
+      printQuery: true
+      druid:
+        initialSize: 10
+        maxActive: 20
+        minIdle: 10
+        maxWait: 5000
+      datasource:
+        master:
+          url: jdbc:mysql://localhost:${MYSQL-PORT:3307}/${MYSQL-DB:fantasy}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
