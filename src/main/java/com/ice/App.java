@@ -1,10 +1,10 @@
 package com.ice;
 
-import com.xiliulou.cache.redis.EnableRedis;
-import com.xiliulou.db.dynamic.annotation.EnableDynamicDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
+
+import com.xiliulou.cache.redis.EnableRedis;
+import com.xiliulou.db.dynamic.annotation.EnableDynamicDataSource;
 
 /**
  * @author : eclair

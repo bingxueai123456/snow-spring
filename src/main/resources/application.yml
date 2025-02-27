@@ -1,5 +1,11 @@
 server:
   port: 8111
+  tomcat:
+    connection-timeout: 1000
+    threads:
+      max: 1
+    accept-count: 1
+    max-connections: 2
 
 spring:
   datasource:
@@ -9,19 +15,19 @@ spring:
       printQuery: true
       druid:
         initialSize: 10
-        maxActive: 20
+        maxActive: 10
         minIdle: 10
-        maxWait: 5000
+        maxWait: 2000
       datasource:
         master:
-          url: jdbc:mysql://127.0.0.1:${MYSQL-PORT:3307}/${MYSQL-DB:ele}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&allowPublicKeyRetrieval=true
+          url: jdbc:mysql://127.0.0.1:${MYSQL-PORT:3307}/${MYSQL-DB:test}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&allowPublicKeyRetrieval=true&socketTimeout=60000
           username: root
-          password: 12345678
+          password: 123456
           driver-class-name: com.mysql.cj.jdbc.Driver
         slave:
-          url: jdbc:mysql://127.0.0.1:${MYSQL-PORT:3307}/${MYSQL-DB:ele}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&allowPublicKeyRetrieval=true
+          url: jdbc:mysql://127.0.0.1:${MYSQL-PORT:3307}/${MYSQL-DB:test}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&allowPublicKeyRetrieval=true&socketTimeout=60000
           username: root
-          password: 12345678
+          password: 123456
           driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
     lettuce:
